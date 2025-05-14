@@ -1,0 +1,39 @@
+# Module 20 Report
+
+## Overview of the Analysis
+
+The purpose of this analysis was to explore how well a logistic regression model can predict whether a loan is high risk or healthy using financial data from a peer-to-peer lending company. The dataset included variables such as loan size, interest rate, borrower income, debt-to-income ratio, number of credit accounts, derogatory marks, and total debt.
+
+We were asked to predict the `loan_status` column:
+- A value of `0` indicates a **healthy loan
+- A value of `1` indicates a high-risk loan
+
+Before training the model, I reviewed the distribution of the target variable:
+```python
+y.value_counts()
+
+From there, I completed the typical machine-learning workflow:
+
+- Loaded and explored the dataset using Pandas
+- Separated the features (X) from the labels (y)
+- Split the data into training and testing sets
+- Used LogisticRegression from scikit-learn to train the model on the training data
+- Evaluated the model's performance using a confusion matrix and classification report
+
+## Results
+
+Machine Learning Model 1: Logistic Regression
+- Accuracy Score: Replace with your value (e.g., 0.93)
+- Precision Score:
+   - Healthy loans (0): e.g., 0.96
+   - High-risk loans (1): e.g., 0.68)
+- Recall Score:
+   - Healthy loans (0): e.g., 0.97
+   - High-risk loans (1): e.g., 0.59
+
+## Summary
+
+The logistic regression model performs very well when identifying healthy loans (0) but struggles with high-risk loans (1). While it achieves high precision and recall for healthy loans, both scores drop significantly for high-risk loans. This likely reflects class imbalance — the dataset contains many more healthy loans than high-risk ones.
+
+In this scenario, it may be more important to correctly identify the high-risk loans (the 1s), as these represent potential defaults. Because the model currently misses a lot of these, I wouldn’t recommend using it in its current form to make critical loan decisions. To improve performance, future work could involve rebalancing the classes or exploring more complex models like Random Forest or Gradient Boosting.
+
